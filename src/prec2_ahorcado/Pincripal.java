@@ -400,9 +400,6 @@ public class Pincripal extends javax.swing.JFrame {
             for (int i = 0; i < palb.length(); i++) {
                 txtPalabra.setText(txtPalabra.getText() + "_ ");
                 res[m++] = "_";
-<<<<<<< HEAD
-                
-                
         }}
         txtPalabra.setText(txtPalabra.getText() + "\n");
             res[m++] = " ";
@@ -433,18 +430,12 @@ public class Pincripal extends javax.swing.JFrame {
                         }
                     }
                 }
-<<<<<<< HEAD
-=======
             }
         }
       }
-=======
-   
->>>>>>> 60074c1fd2a957edf5b758d041a972ad6ba9ee65
             }
         }
       }
-=======
    
                 }
             }
@@ -460,8 +451,6 @@ public class Pincripal extends javax.swing.JFrame {
     
     }
     
-  
->>>>>>> c696287bdd4b3e74472af3cd3c19d6670ead835d
     /**
      * @param args the command line arguments
      */
