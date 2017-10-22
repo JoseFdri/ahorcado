@@ -309,6 +309,7 @@ public class Pincripal extends javax.swing.JFrame {
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
               // TODO add your handling code here:
               iniciar();
+             
     }//GEN-LAST:event_jButton28ActionPerformed
     
     public int verificar_letra(String letra){
@@ -334,8 +335,40 @@ public class Pincripal extends javax.swing.JFrame {
                   user_rspta.add(letra);
                   int validar = verificar_letra(letra);
                   System.out.println(user_rspta);
+                
+                  JButton bt = (JButton) ae.getSource();
+             char c[];
+        
+            for (int i = 1; i < 27; i++) {
+                    if (bt == btns[i]) {
+                    c = Character.toChars(64 + i);
+                    
+                    boolean esta = false;
+                
+                for (int j = 0; j < p.elegir.length(); j++) {
+                    if (c[0] == p.elegir.charAt(j)) {
+                        res[j] = c[0] + "";
+                        esta = true;
+                    }
+                    }
+         
+            if (esta) {
+                    txtPalabra.setText("");
+                    for (String re : res) {
+                            if (" ".equals(re)) {
+                                txtPalabra.setText(txtPalabra.getText() + "\n");
+                                System.out.println(txtPalabra); 
+                                } 
+                            else {
+                                txtPalabra.setText(txtPalabra.getText() + re + " ");
+                                }
+                                }
+                       }
+           }
+           }
+            
                   
-               
+         cambiar_img(); 
                 } 
              });
         }
@@ -351,20 +384,23 @@ public class Pincripal extends javax.swing.JFrame {
        try{
           //Image img = ImageIO.read();
           btnAhorcado.setIcon(new ImageIcon(getClass().getResource(im.links.get(0))));
-       } catch (Exception e){
+          } 
+       catch (Exception e){
          System.out.println(e);
-       }
+            }
+       
        txtPalabra.setText("");
        
-        String pal[] = p.elegir.split(" ");//split es para trabajar con listas de palabras y darles una separación
-        res = new String[p.elegir.length() + 1];
-        int m = 0;
+       String pal[] = p.elegir.split(" ");//split es para trabajar con listas de palabras y darles una separación
+       res = new String[p.elegir.length() + 1];
+       int m = 0;
      
         //  guiones que van debajo de las letras 
         for (String palb : pal) {
             for (int i = 0; i < palb.length(); i++) {
                 txtPalabra.setText(txtPalabra.getText() + "_ ");
                 res[m++] = "_";
+<<<<<<< HEAD
                 
                 
         }}
@@ -400,6 +436,24 @@ public class Pincripal extends javax.swing.JFrame {
             }
         }
       }
+=======
+   
+            }
+        }
+        txtPalabra.setText(txtPalabra.getText() + "\n");
+            res[m++] = " ";
+            
+            System.out.println(txtPalabra); 
+            
+         /*p.elegir=txtPalabra.toString();
+                  txtPalabra.setText( p.elegir+ "_ ");
+                    System.out.println(txtPalabra);*/  
+         
+          
+    }
+    
+  
+>>>>>>> c696287bdd4b3e74472af3cd3c19d6670ead835d
     /**
      * @param args the command line arguments
      */
