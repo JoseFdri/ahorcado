@@ -24,7 +24,7 @@ public class Pincripal extends javax.swing.JFrame {
     Palabras p=new Palabras();
     ImagenAhorcado im=new ImagenAhorcado();
     int contador = 0;
-    public String respuesta_final = "HOLA";
+    public String respuesta_final = " ";
     ArrayList<String> user_rspta = new ArrayList<String>();
     public String temp_rspta = "";
     public String res[];
@@ -302,8 +302,8 @@ public class Pincripal extends javax.swing.JFrame {
 
     private void btnAhorcadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAhorcadoActionPerformed
         // TODO add your handling code here:
-        contador++;
-        btnAhorcado.setIcon(new ImageIcon(getClass().getResource(im.links.get(contador))));
+        //contador++;
+        //btnAhorcado.setIcon(new ImageIcon(getClass().getResource(im.links.get(contador))));
     }//GEN-LAST:event_btnAhorcadoActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
@@ -359,7 +359,7 @@ public class Pincripal extends javax.swing.JFrame {
         String pal[] = p.elegir.split(" ");//split es para trabajar con listas de palabras y darles una separación
         res = new String[p.elegir.length() + 1];
         int m = 0;
-        
+     
 //  guiones que van debajo de las letras 
         for (String palb : pal) {
             for (int i = 0; i < palb.length(); i++) {
@@ -370,14 +370,46 @@ public class Pincripal extends javax.swing.JFrame {
             }}
         txtPalabra.setText(txtPalabra.getText() + "\n");
             res[m++] = " ";
-            System.out.println(txtPalabra);
+              System.out.println(txtPalabra); 
             
          /*p.elegir=txtPalabra.toString();
                   txtPalabra.setText( p.elegir+ "_ ");
                    
                     System.out.println(txtPalabra);*/
+       
+           
+         
     }
     
+      public void checarLetra(ActionEvent ae) {
+          
+          JButton bt = (JButton) ae.getSource();
+        char c[];
+        
+        for (int i = 1; i < 27; i++) {
+            if (bt == btns[i]) {
+      c = Character.toChars(64 + i);
+          boolean esta = false;
+                for (int j = 0; j < p.elegir.length(); j++) {
+                    if (c[0] == p.elegir.charAt(j)) {
+                        res[j] = c[0] + "";
+                        esta = true;
+                    }
+                }
+         
+          if (esta) {
+                    txtPalabra.setText("");
+                    for (String re : res) {
+                        if (" ".equals(re)) {
+                            txtPalabra.setText(txtPalabra.getText() + "\n");
+                        } else {
+                            txtPalabra.setText(txtPalabra.getText() + re + " ");
+                               System.out.println(txtPalabra); 
+                                }
+                          }
+                    }
+      
+      }}}
     /**
      * @param args the command line arguments
      */
