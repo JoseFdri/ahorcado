@@ -433,6 +433,14 @@ public class Pincripal extends javax.swing.JFrame {
                         }
                     }
                 }
+<<<<<<< HEAD
+=======
+            }
+        }
+      }
+=======
+   
+>>>>>>> 60074c1fd2a957edf5b758d041a972ad6ba9ee65
             }
         }
       }
