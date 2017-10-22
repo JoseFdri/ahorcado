@@ -351,6 +351,7 @@ public class Pincripal extends javax.swing.JFrame {
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         clon.clear();
+        contador = 0;
         iniciar();
     }//GEN-LAST:event_jButton28ActionPerformed
     public void asignar_letra_teclado(){
@@ -391,7 +392,6 @@ public class Pincripal extends javax.swing.JFrame {
           System.out.println(e);
       }
     }
-    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
