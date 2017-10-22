@@ -6,18 +6,14 @@
 package prec2_ahorcado;
 
 import java.util.ArrayList;
-
-
-
 public class Palabras {
     
     
     public String elegir;
     
     ArrayList<String> plbr = new ArrayList<String>();
-  public Palabras()
+    public Palabras()
     {
-  
         plbr.add("GOKU");
         plbr.add("PICCOLO");
         plbr.add( "KAMISAMA");
@@ -31,15 +27,12 @@ public class Palabras {
         plbr.add( "KRILIN");
         plbr.add( "YAMCHA");
         plbr.add( "PAN");
-        
         elegir = escogerPalabra();
- 
     }
 
     public String escogerPalabra() {
-         int pAleatorio=(int)((Math.random()* ((plbr.size()- 1) + 1)));
+        int pAleatorio=(int)((Math.random()* ((plbr.size()- 1) + 1)));
         return plbr.get(pAleatorio);
-         
     } 
     
 }
