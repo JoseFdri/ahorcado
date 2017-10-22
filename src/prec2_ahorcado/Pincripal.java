@@ -314,45 +314,45 @@ public class Pincripal extends javax.swing.JFrame {
     
     public int verificar_letra(String letra){
         int validar = respuesta_final.indexOf(letra);
-        if(validar == -1){
+         if(validar == -1){
             return -1;
-        }else{
-            return validar;
-            
-            
         }
+         else{
+            return validar;      
+            }
         
     }
     
     public void recibir_letra(){
         for (int i = 1; i < 26; i++) {
-            //System.out.println(btns[i].getText());
+          
             btns[i].addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) { 
-                  // TODO add your handling code here:
+                  
                 String letra = ae.getActionCommand();
-                  System.out.print("\n Test: " + letra);
-                  user_rspta.add(letra);
-                  int validar = verificar_letra(letra);
-                  System.out.println(user_rspta);
+                System.out.print("\n Test: " + letra);
+                user_rspta.add(letra);
+                int validar = verificar_letra(letra);
+                System.out.println(user_rspta);
                 
+             
                   JButton bt = (JButton) ae.getSource();
-             char c[];
+                    char c[];
         
-            for (int i = 1; i < 27; i++) {
-                    if (bt == btns[i]) {
-                    c = Character.toChars(64 + i);
+                    for (int i = 1; i < 27; i++) {
+                        if (bt == btns[i]) {
+                        c = Character.toChars(64 + i);
                     
                     boolean esta = false;
                 
-                for (int j = 0; j < p.elegir.length(); j++) {
-                    if (c[0] == p.elegir.charAt(j)) {
+                    for (int j = 0; j < p.elegir.length(); j++) {
+                        if (c[0] == p.elegir.charAt(j)) {
                         res[j] = c[0] + "";
                         esta = true;
                     }
                     }
          
-            if (esta) {
+                    if (esta) {
                     txtPalabra.setText("");
                     for (String re : res) {
                             if (" ".equals(re)) {
@@ -366,9 +366,9 @@ public class Pincripal extends javax.swing.JFrame {
                        }
            }
            }
-            
-                  
-         cambiar_img(); 
+       
+         cambiar_img();
+         
                 } 
              });
         }
@@ -387,7 +387,7 @@ public class Pincripal extends javax.swing.JFrame {
           } 
        catch (Exception e){
          System.out.println(e);
-            }
+          }
        
        txtPalabra.setText("");
        
@@ -395,27 +395,65 @@ public class Pincripal extends javax.swing.JFrame {
        res = new String[p.elegir.length() + 1];
        int m = 0;
      
-//  guiones que van debajo de las letras 
+        //  guiones que van debajo de las letras 
         for (String palb : pal) {
             for (int i = 0; i < palb.length(); i++) {
                 txtPalabra.setText(txtPalabra.getText() + "_ ");
                 res[m++] = "_";
-   
+<<<<<<< HEAD
+                
+                
+        }}
+        txtPalabra.setText(txtPalabra.getText() + "\n");
+            res[m++] = " ";
+              System.out.println(txtPalabra); 
+    }
+    
+      public void checarLetra(ActionEvent ae) {
+        JButton bt = (JButton) ae.getSource();
+        char c[];
+        for (int i = 1; i < 27; i++) {
+            if (bt == btns[i]) {
+                c = Character.toChars(64 + i);
+                boolean esta = false;
+                for (int j = 0; j < p.elegir.length(); j++) {
+                    if (c[0] == p.elegir.charAt(j)) {
+                        res[j] = c[0] + "";
+                        esta = true;
+                    }
+                }
+                if (esta) {
+                    txtPalabra.setText("");
+                    for (String re : res) {
+                        if (" ".equals(re)){
+                            txtPalabra.setText(txtPalabra.getText() + "\n");
+                        } else {
+                            txtPalabra.setText(txtPalabra.getText() + re + " ");
+                            System.out.println(txtPalabra); 
+                        }
+                    }
+                }
             }
         }
+      }
+=======
+   
+                }
+            }
         txtPalabra.setText(txtPalabra.getText() + "\n");
             res[m++] = " ";
             
             System.out.println(txtPalabra); 
             
+            
          /*p.elegir=txtPalabra.toString();
                   txtPalabra.setText( p.elegir+ "_ ");
                     System.out.println(txtPalabra);*/  
-         
-          
+    
     }
     
   
+>>>>>>> c696287bdd4b3e74472af3cd3c19d6670ead835d
     /**
      * @param args the command line arguments
      */
