@@ -341,6 +341,7 @@ public class Pincripal extends javax.swing.JFrame {
         
                     for (int i = 1; i < 27; i++) {
                         if (bt == btns[i]) {
+                            
                         c = Character.toChars(64 + i);
                     
                     boolean esta = false;
@@ -362,7 +363,9 @@ public class Pincripal extends javax.swing.JFrame {
                             else {
                                 txtPalabra.setText(txtPalabra.getText() + re + " ");
                                 }
+                            
                                 }
+                     
                        }
            }
            }
@@ -406,51 +409,13 @@ public class Pincripal extends javax.swing.JFrame {
               System.out.println(txtPalabra); 
     }
     
-      public void checarLetra(ActionEvent ae) {
-        JButton bt = (JButton) ae.getSource();
-        char c[];
-        for (int i = 1; i < 27; i++) {
-            if (bt == btns[i]) {
-                c = Character.toChars(64 + i);
-                boolean esta = false;
-                for (int j = 0; j < p.elegir.length(); j++) {
-                    if (c[0] == p.elegir.charAt(j)) {
-                        res[j] = c[0] + "";
-                        esta = true;
-                    }
-                }
-                if (esta) {
-                    txtPalabra.setText("");
-                    for (String re : res) {
-                        if (" ".equals(re)){
-                            txtPalabra.setText(txtPalabra.getText() + "\n");
-                        } else {
-                            txtPalabra.setText(txtPalabra.getText() + re + " ");
-                            System.out.println(txtPalabra); 
-                        }
-                    }
-                }
-            }
-        }
-      }
-            }
-        }
-      }
-   
-                }
-            }
-        txtPalabra.setText(txtPalabra.getText() + "\n");
-            res[m++] = " ";
-            
-            System.out.println(txtPalabra); 
-            
-            
+           
          /*p.elegir=txtPalabra.toString();
                   txtPalabra.setText( p.elegir+ "_ ");
-                    System.out.println(txtPalabra);*/  
-    
-    }
-    
+                    System.out.println(txtPalabra);*/
+            
+            
+   
     /**
      * @param args the command line arguments
      */
