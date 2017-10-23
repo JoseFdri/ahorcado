@@ -39,16 +39,21 @@ public class Pincripal extends javax.swing.JFrame {
     }
     
     public void  iniciar(){
-        asignar_letra_teclado();
-        recibir_letra();
         cambiar_img();
         poner_guiones_en_respuesta();
+        asignar_letra_teclado();
+        recibir_letra();
+        
+
     }
+    
     public void recibir_letra(){
         for (int i = 1; i < 27; i++) {
             final int index = i;
+            btns[i].setEnabled(true);
             btns[i].addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
+                    JButton bt = (JButton) ae.getSource();      
                     if(perder == false){
                         String letra = ae.getActionCommand();
                         user_rspta.add(letra);
@@ -57,16 +62,19 @@ public class Pincripal extends javax.swing.JFrame {
                         if(validar != null){
                             actualizar_palabra(letra,validar);
                         }else{
-                            if(contador < 10){
+                            if(contador < 9){
                                 cambiar_img();
                                 contador++;
                             }else{
                                 perder = true;
+                                
                             }
 
                         }
                     }
-                    btns[index].setEnabled(false);
+                    
+                    bt.setEnabled(false);
+                    //btns[index].setEnabled(false);
                 } 
             });
         }
@@ -353,6 +361,9 @@ public class Pincripal extends javax.swing.JFrame {
         clon.clear();
         contador = 0;
         iniciar();
+        
+        
+        
     }//GEN-LAST:event_jButton28ActionPerformed
     public void asignar_letra_teclado(){
         //Letras
