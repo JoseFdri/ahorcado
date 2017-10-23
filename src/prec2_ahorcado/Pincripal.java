@@ -74,11 +74,11 @@ public class Pincripal extends javax.swing.JFrame {
             final int index = i;
             btns[i].addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
+                    System.out.println("click");
                     if(perder == false){
                         String letra = ae.getActionCommand();
                         user_rspta.add(letra);
                         ArrayList<Integer>  validar = verificar_letra(letra);
-                        System.out.println(validar);
                         if(validar != null){
                             actualizar_palabra(letra,validar);
                         }else{
@@ -94,7 +94,6 @@ public class Pincripal extends javax.swing.JFrame {
                                 }
                             }
                         }
-                    }else{
                     }
                     btns[index].setEnabled(false);
                     boolean termino = verificar_si_completo_respuesta();
@@ -111,7 +110,8 @@ public class Pincripal extends javax.swing.JFrame {
     public void reiniciar_juego(){
         clon.clear();
         contador = 0;
-        iniciar();
+        cambiar_img();
+        poner_guiones_en_respuesta();
         desbloquear_botones();
         perder = false;
     }
@@ -429,7 +429,7 @@ public class Pincripal extends javax.swing.JFrame {
     public void cambiar_img(){
       try{
         //System.out.println(im.links.get(contador));
-        btnAhorcado.setIcon(new ImageIcon(getClass().getResource(im.links.get(this.contador))));
+        btnAhorcado.setIcon(new ImageIcon(getClass().getResource(im.links.get(contador))));
       }catch (Exception e){
           System.out.println(e);
       }
