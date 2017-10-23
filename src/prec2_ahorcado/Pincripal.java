@@ -33,6 +33,7 @@ public class Pincripal extends javax.swing.JFrame {
     public Pincripal() {
         initComponents();
         iniciar();
+        setIconImage(new ImageIcon(getClass().getResource("../Imagenes/logo.png")).getImage());
         setLocationRelativeTo(null);
     }
     

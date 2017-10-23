@@ -5,6 +5,8 @@
  */
 package prec2_ahorcado;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author USUARIO
@@ -16,6 +18,7 @@ public class Ajugar_ extends javax.swing.JFrame {
      */
     public Ajugar_() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("../Imagenes/logo.png")).getImage());
         setLocationRelativeTo(null);
     }
 
@@ -34,6 +37,7 @@ public class Ajugar_ extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
         jPanel2.setForeground(new java.awt.Color(0, 204, 204));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
