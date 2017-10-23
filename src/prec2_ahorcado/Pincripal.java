@@ -13,10 +13,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-/**
- *
- * @author USUARIO
- */
+
 public class Pincripal extends javax.swing.JFrame {
 
     public JButton btns[] = new JButton[27];
@@ -31,6 +28,7 @@ public class Pincripal extends javax.swing.JFrame {
     private String pal[];
     private ArrayList<String> clon = new ArrayList<String>();
     boolean perder = false;
+    String respuesta;
     
     public Pincripal() {
         initComponents();
@@ -44,6 +42,33 @@ public class Pincripal extends javax.swing.JFrame {
         cambiar_img();
         poner_guiones_en_respuesta();
     }
+    
+    public void desbloquear_botones(){
+        for (int i = 1; i < 27; i++) {
+            btns[i].setEnabled(true);
+        }
+    }
+    
+    public void mostrar_mensaje(String header,String texto){
+         JOptionPane.showMessageDialog(
+                        this,
+                        header,
+                        texto,
+                        JOptionPane.INFORMATION_MESSAGE );
+    }
+    
+    public boolean verificar_si_completo_respuesta(){
+        String avanze = "";
+        for (int i = 0; i < clon.size(); i++) {
+            avanze += clon.get(i);
+        }
+        if(avanze.equals(respuesta)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     public void recibir_letra(){
         for (int i = 1; i < 27; i++) {
             final int index = i;
@@ -57,19 +82,38 @@ public class Pincripal extends javax.swing.JFrame {
                         if(validar != null){
                             actualizar_palabra(letra,validar);
                         }else{
-                            if(contador < 10){
-                                cambiar_img();
+                            if(contador < 8){
                                 contador++;
-                            }else{
-                                perder = true;
+                                cambiar_img();
+                                System.out.println("contador "+contador);
+                                if(contador == 8){
+                                    perder = true;
+                                    mostrar_mensaje("¡Mala suerte!","Acabas de perder");
+                                    reiniciar_juego();
+                                    return;
+                                }
                             }
-
                         }
+                    }else{
                     }
                     btns[index].setEnabled(false);
+                    boolean termino = verificar_si_completo_respuesta();
+                    if(termino == true){
+                        mostrar_mensaje("¡Ganaste!","Felicidades lo has conseguido");
+                        reiniciar_juego();
+                        return;
+                    }
                 } 
             });
         }
+    }
+    
+    public void reiniciar_juego(){
+        clon.clear();
+        contador = 0;
+        iniciar();
+        desbloquear_botones();
+        perder = false;
     }
     
     public ArrayList<Integer> verificar_letra(String letra ){
@@ -88,8 +132,10 @@ public class Pincripal extends javax.swing.JFrame {
      
     public void poner_guiones_en_respuesta(){
         txtPalabra.setText("");
+        respuesta = palabra.escogerPalabra();
+        System.out.println(respuesta);
         //split es para trabajar con listas de palabras y darles una separación
-        pal = palabra.elegir.split("");
+        pal = respuesta.split("");
         String rayitas = "";
         for (int i = 0; i < pal.length ; i++) {
             rayitas += "_ ";
@@ -100,12 +146,10 @@ public class Pincripal extends javax.swing.JFrame {
     
     public void actualizar_palabra(String letra, ArrayList<Integer> ind_rsp){
         txtPalabra.setText("");
-        String[] clon_rspta = pal;
+        String txt_final = "";
         for (int i = 0; i < ind_rsp.size() ; i++) {
             clon.set(ind_rsp.get(i),letra);
-            System.out.println("test"+ind_rsp.get(i));
         }
-        String txt_final = "";
         for (int e = 0; e < clon.size() ; e++) {
             txt_final += clon.get(e);
         }
@@ -350,9 +394,7 @@ public class Pincripal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAhorcadoActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        clon.clear();
-        contador = 0;
-        iniciar();
+       reiniciar_juego();
     }//GEN-LAST:event_jButton28ActionPerformed
     public void asignar_letra_teclado(){
         //Letras
